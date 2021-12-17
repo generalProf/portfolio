@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="afe3e23d-17e9-49f0-8c9f-f2c3c515c6c7" name="Portfolio" url="ftp://45.76.154.83">
+        <fileTransfer accessType="SFTP" host="45.76.154.83" port="22" sshConfigId="023c27dd-c646-4ebe-ab2e-a470d7f43405" sshConfig="Portfolio" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

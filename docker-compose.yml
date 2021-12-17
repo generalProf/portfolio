@@ -1,0 +1,85 @@
+version: "3"
+
+networks:
+  laravel:
+
+services:
+  nginx:
+    image: nginx:stable-alpine
+    container_name: nginx_d
+    ports:
+      - "8080:80"
+    volumes:
+      - ./volumes/src:/var/www/html
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - php
+      - mysql
+    networks:
+      - laravel
+
+  mysql:
+    image: mysql:5.7.22
+    container_name: mysql_d
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./volumes/mysql:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: draftingEsports
+      MYSQL_USER: root
+      MYSQL_PASSWORD: a0saf893jv
+      MYSQL_ROOT_PASSWORD: a0saf893jv
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysql
+    networks:
+      - laravel
+
+  php:
+    build:
+      context: .
+      dockerfile: ./images/Php
+    container_name: php_d
+    volumes:
+      - ./volumes/src:/var/www/html
+    ports:
+      - "9000:9000"
+    networks:
+      - laravel
+
+  composer:
+    build:
+      context: .
+      dockerfile: ./images/Composer
+    container_name: composer_d
+    volumes:
+      - ./volumes/src:/var/www/html
+    working_dir: /var/www/html
+    networks:
+      - laravel
+
+  npm:
+    image: node:14.3-alpine3.11
+    container_name: npm_d
+    volumes:
+      - ./volumes/src:/var/www/html
+    working_dir: /var/www/html
+    entrypoint: ['npm']
+    networks:
+      - laravel
+
+  artisan:
+    build:
+      context: .
+      dockerfile: ./images/Php
+    container_name: artisan_d
+    volumes:
+      - ./volumes/src:/var/www/html
+    depends_on:
+      - mysql
+    working_dir: /var/www/html/portfolio
+    entrypoint: ['php', '/var/www/html/artisan']
+    networks:
+      - laravel
