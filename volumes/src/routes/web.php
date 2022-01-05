@@ -15,4 +15,26 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
+
+Route::get('/contact-us', function () {
+    return view('welcome');
+})->name('contact-us');
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+
+
+Route::get('/adrian-blanco-jewelry', function () {
+    return view('projects/adrian-blanco-jewelry');
+})->name('adrian');
+
+
+
+
+
+
+
+require __DIR__.'/auth.php';

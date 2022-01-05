@@ -6,7 +6,7 @@ networks:
 services:
   nginx:
     image: nginx:stable-alpine
-    container_name: nginx_d
+    container_name: nginx_portfolio
     ports:
       - "8080:80"
     volumes:
@@ -20,7 +20,7 @@ services:
 
   mysql:
     image: mysql:5.7.22
-    container_name: mysql_d
+    container_name: mysql_portfolio
     restart: unless-stopped
     tty: true
     ports:
@@ -28,7 +28,7 @@ services:
     volumes:
       - ./volumes/mysql:/var/lib/mysql
     environment:
-      MYSQL_DATABASE: draftingEsports
+      MYSQL_DATABASE: portfolio
       MYSQL_USER: root
       MYSQL_PASSWORD: a0saf893jv
       MYSQL_ROOT_PASSWORD: a0saf893jv
@@ -41,7 +41,7 @@ services:
     build:
       context: .
       dockerfile: ./images/Php
-    container_name: php_d
+    container_name: php_portfolio
     volumes:
       - ./volumes/src:/var/www/html
     ports:
@@ -53,7 +53,7 @@ services:
     build:
       context: .
       dockerfile: ./images/Composer
-    container_name: composer_d
+    container_name: composer_portfolio
     volumes:
       - ./volumes/src:/var/www/html
     working_dir: /var/www/html
@@ -62,7 +62,7 @@ services:
 
   npm:
     image: node:14.3-alpine3.11
-    container_name: npm_d
+    container_name: npm_portfolio
     volumes:
       - ./volumes/src:/var/www/html
     working_dir: /var/www/html
@@ -74,7 +74,7 @@ services:
     build:
       context: .
       dockerfile: ./images/Php
-    container_name: artisan_d
+    container_name: artisan_portfolio
     volumes:
       - ./volumes/src:/var/www/html
     depends_on:
