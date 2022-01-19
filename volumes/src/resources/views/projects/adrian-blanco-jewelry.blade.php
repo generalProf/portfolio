@@ -25,15 +25,13 @@
         </div>
     </nav>
 
-    <section class="relative overflow-hidden h-screen flex items-center">
-        <video class="absolute top-0 left-0 w-full h-full object-cover" autoplay loop muted>
-            <source src="{{ asset('videos/projects/adrianBlancoJewelry/citizen.mp4') }}" type="video/mp4">
-        </video>
+    <section class="relative bg-black overflow-hidden h-screen flex flex-col items-center">
 
-        <div class="relative z-10 text-white px-20 w-full max-w-screen-xl mx-auto">
-            <h1 class="text-5xl font-playfair font-bold">Adrian Blanco Jewelry</h1>
-            <p class="font-allura text-2xl tracking-widest leading-loose">Craftsmanship in all things</p>
-        </div>
+        <img src="{{ asset('images/projects/adrianBlancoJewelry/request1_necklace.png') }}"
+             class="h-[48vh]">
+        <h1 class="text-9xl text-white leading-relaxed font-playfair">Adrian Blanco</h1>
+        <p class="font-mont font-semibold text-[#f8c194] text-4xl tracking-tight">JEWELRY</p>
+
     </section>
 
     <div class="max-w-screen-xl mx-auto px-20">
@@ -242,17 +240,17 @@
             <h2 class="font-mont font-semibold text-4xl text-center mb-16">Our Services</h2>
             <div class="flex gap-5">
                 <div class="text-center">
-                    <img class="inline-block w-[40px]" src="{{ asset('images/projects/adrianBlancoJewelry/services.svg') }}" alt="Designs services">
+                    <img class="inline-block w-[40px]" src="{{ asset('images/projects/adrianBlancoJewelry/design-min.png') }}" alt="Designs services">
                     <h3 class="text-xl leading-loose font-semibold font-mont my-5">Designs</h3>
                     <p class="text-gray-500 font-droid leading-relaxed">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt odio aperiam temporibus magni at. Veritatis!</p>
                 </div>
                 <div class="text-center">
-                    <img class="inline-block w-[40px]" src="{{ asset('images/projects/adrianBlancoJewelry/services.svg') }}" alt="Designs services">
+                    <img class="inline-block w-[40px]" src="{{ asset('images/projects/adrianBlancoJewelry/repairs-min.png') }}" alt="Designs services">
                     <h3 class="text-xl leading-loose font-semibold font-mont my-5">Repairs</h3>
                     <p class="text-gray-500 font-droid leading-relaxed">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt odio aperiam temporibus magni at. Veritatis!</p>
                 </div>
                 <div class="text-center">
-                    <img class="inline-block w-[40px]" src="{{ asset('images/projects/adrianBlancoJewelry/services.svg') }}" alt="Designs services">
+                    <img class="inline-block w-[40px]" src="{{ asset('images/projects/adrianBlancoJewelry/appraisals-min.png') }}" alt="Designs services">
                     <h3 class="text-xl leading-loose font-semibold font-mont my-5">Appraisals</h3>
                     <p class="text-gray-500 font-droid leading-relaxed">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt odio aperiam temporibus magni at. Veritatis!</p>
                 </div>
@@ -275,7 +273,7 @@
                 <p class="font-droid text-gray-500 leading-loose">Contactus@adrianblancojewelry.com</p>
             </div>
             <div class="w-1/2">
-                <img src="{{ asset('images/projects/adrianBlancoJewelry/store-front.jpg') }}" alt="Store front">
+                <img src="{{ asset('images/projects/adrianBlancoJewelry/location-personal-screenshot-crop.jpg') }}" alt="Store front">
             </div>
         </section>
 
@@ -302,4 +300,4 @@
         <img class="my-8" src="{{ asset('images/projects/adrianBlancoJewelry/Payments.png') }}" alt="Payment types">
     </footer>
 
-</x-guest-layout>
+</x-adrian-blanco-layout>
